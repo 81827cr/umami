@@ -11,14 +11,16 @@ env:
 
 jobs:
   build:
+    # Only run the CI if it belongs to the original repository
+    if: github.repository == 'umami-software/umami'
     runs-on: ubuntu-latest
 
     strategy:
       matrix:
         include:
-        - node-version: 18.17
+        - node-version: 18.18
           db-type: postgresql
-        - node-version: 18.17
+        - node-version: 18.18
           db-type: mysql
 
     steps:
